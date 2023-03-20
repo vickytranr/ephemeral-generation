@@ -54,7 +54,7 @@ var o1 = {
     "y": h/2,
     "w": 1200,
     "h": 600,
-    "c": Math.floor(Math.random()*20+10),
+    "c": Math.floor(Math.random()*360),
     "s": Math.floor(Math.random()*80),
     "l": Math.floor(Math.random()*30+70),
     "a": Math.random()*0.3+0.1
@@ -64,8 +64,6 @@ var o2 = {
     "y": h/2,
     "r": 10,
     "c": Math.floor(Math.random()*350+10),
-    "s": Math.floor(Math.random()*80),
-    "l": Math.floor(Math.random()*30+70),
 };
 function rect(o){
     var x = o.x;
@@ -78,7 +76,7 @@ function rect(o){
     ctx.lineTo(o.x+o.w,o.y+o.h);
     ctx.lineTo(o.x,o.y+o.h);
     ctx.lineTo(o.x,o.y);
-    ctx.fillStyle = "hsla("+o.c+",40%,93%,"+o.a+")";
+    ctx.fillStyle = "hsla("+o.c+",70%,85%,"+o.a+")";
     ctx.fill();
     o.x = x;
     o.y = y;
@@ -99,57 +97,58 @@ function circle(o){
     //1
     var x1 = Math.floor(Math.random()*1200);
     var y1 = Math.floor(Math.random()*600);
-    var w1 = Math.floor(Math.random()*500);
-    var h1 = Math.floor(Math.random()*500);
+    var w1 = Math.floor(Math.random()*300);
+    var h1 = Math.floor(Math.random()*300);
 
     //2
     var x2 = Math.floor(Math.random()*1200);
     var y2 = Math.floor(Math.random()*600);
-    var w2 = Math.floor(Math.random()*500);
-    var h2 = Math.floor(Math.random()*500);
+    var w2 = Math.floor(Math.random()*300);
+    var h2 = Math.floor(Math.random()*300);
 
     //3
     var x3 = Math.floor(Math.random()*1200);
     var y3 = Math.floor(Math.random()*600);
-    var w3 = Math.floor(Math.random()*500);
-    var h3 = Math.floor(Math.random()*500);
+    var w3 = Math.floor(Math.random()*300);
+    var h3 = Math.floor(Math.random()*300);
 
     //4
     var x4 = Math.floor(Math.random()*1200);
     var y4 = Math.floor(Math.random()*600);
-    var w4 = Math.floor(Math.random()*500);
-    var h4 = Math.floor(Math.random()*500);
+    var w4 = Math.floor(Math.random()*300);
+    var h4 = Math.floor(Math.random()*300);
 
     //5
     var x5 = Math.floor(Math.random()*1200);
     var y5 = Math.floor(Math.random()*600);
-    var w5 = Math.floor(Math.random()*500);
-    var h5 = Math.floor(Math.random()*500);
+    var w5 = Math.floor(Math.random()*300);
+    var h5 = Math.floor(Math.random()*300);
 
     //flow randoms
     var xF = Math.floor(Math.random()*-100);
     var yF = Math.floor(Math.random()*-100);
-    var wF = Math.floor(Math.random()*600+500);
+    var wF = Math.floor(Math.random()*600+400);
     var hF = Math.floor(Math.random()*1000+500);
 
     //bigHalf randoms
-    var xB = Math.floor(Math.random()*1000);
+    var xB = Math.floor(Math.random()*-200);
     var yB = Math.floor(Math.random()*-600);
-    var wB = Math.floor(Math.random()*400+200);
+    var wB = Math.floor(Math.random()*400+100);
     var hB = Math.floor(Math.random()*100+300);
 
-for(var i=0;i<4;i++){
+
 
     rect(o1);
-    ctx.drawImage(flow,xF,yF,wF,hF);
+
     ctx.drawImage(bigHalf,xB,yB,wB,hB);
     ctx.drawImage(images[result1], x1, y1, w1, h1);
     ctx.drawImage(images[result2], x2, y2, w2, h2);
     ctx.drawImage(images[result3], x3, y3, w3, h3);
+    ctx.drawImage(flow,xF,yF,wF,hF);
     ctx.drawImage(images[result4], x4, y4, w4, h4);
     ctx.drawImage(images[result5], x5, y5, w5, h5);
     circle(o2);
-    }
+  
 
 var textArray = ["wordle?","india vs. england?","ukraine?","queen elizabeth?","ind vs SA?","election results?","passing?","powerball numbers?","johnny depp?","will smith?","amber heard?","euphoria?","betty white?","rogers outage?","why is there a formula shortage?","why is rogers down?"];
 
@@ -190,8 +189,8 @@ var textArray = ["wordle?","india vs. england?","ukraine?","queen elizabeth?","i
     var resultT5 = Math.floor(Math.random()*16);
 
     //colour text
-    var cT1 = Math.floor(Math.random()*25+10);
-    var aT1 = Math.random()*0.5;
+    var cT1 = Math.floor(Math.random()*35+o1.c);
+    var aT1 = Math.random()*0.4;
 
     ctx.font= wT1+"px helvetica";
     ctx.fillStyle = "hsla("+cT1+",100%,20%,"+aT1+")";
@@ -207,7 +206,7 @@ var textArray = ["wordle?","india vs. england?","ukraine?","queen elizabeth?","i
 
     ctx.fillStyle = "hsla("+cT1+",100%,10%,"+1+")";
     ctx.font= "30px helvetica";
-    ctx.fillText("What was it this time today...", xTe, yTe);
+    ctx.fillText("What is it this time today...", xTe, yTe);
 };
 
 function clear(){

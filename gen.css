@@ -13,7 +13,7 @@ h1{
 }
 h2{
     font-family: 'Helvetica', Times, serif;
-    font-style: italic;
+    font-style:normal;
     padding: 0;
     text-align: center;
     display: block;
@@ -21,10 +21,22 @@ h2{
     color:rgb(41, 34, 30);
 }
 html{
-    background-color: rgb(231, 219, 216);
     background-image: url("gdd4.gif");
     background-repeat: no-repeat;
     background-size: 700px;
     background-attachment: fixed;
     background-position: center 80px;
+}
+#flow1{
+    z-index: 1;
+    position: absolute;
+    margin-top:-300px;
+    transform: scaleX(-1) rotate(90deg);
+}
+#flow2{
+    z-index: 1;
+    position: absolute;
+    margin-top:-300px;
+    right: 0;
+    transform: rotate(90deg);
 }
