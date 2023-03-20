@@ -54,10 +54,10 @@ var o1 = {
     "y": h/2,
     "w": 1200,
     "h": 600,
-    "c": Math.floor(Math.random()*350+10),
+    "c": Math.floor(Math.random()*20+10),
     "s": Math.floor(Math.random()*80),
     "l": Math.floor(Math.random()*30+70),
-    "a": Math.random()*0.5
+    "a": Math.random()*0.3+0.1
 };
 var o2 = {
     "x": w/2,
