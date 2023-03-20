@@ -54,10 +54,18 @@ var o1 = {
     "y": h/2,
     "w": 1200,
     "h": 600,
-    "c": Math.floor(Math.random()*360),
-    "s": Math.floor(Math.random()*100),
-    "l": Math.floor(Math.random()*50+50),
-    "a": Math.random()
+    "c": Math.floor(Math.random()*350+10),
+    "s": Math.floor(Math.random()*80),
+    "l": Math.floor(Math.random()*30+70),
+    "a": Math.random()*0.5
+};
+var o2 = {
+    "x": w/2,
+    "y": h/2,
+    "r": 10,
+    "c": Math.floor(Math.random()*350+10),
+    "s": Math.floor(Math.random()*80),
+    "l": Math.floor(Math.random()*30+70),
 };
 function rect(o){
     var x = o.x;
@@ -70,10 +78,16 @@ function rect(o){
     ctx.lineTo(o.x+o.w,o.y+o.h);
     ctx.lineTo(o.x,o.y+o.h);
     ctx.lineTo(o.x,o.y);
-    ctx.fillStyle = "hsla("+o.c+",60%,80%,"+o.a+")";
+    ctx.fillStyle = "hsla("+o.c+",40%,93%,"+o.a+")";
     ctx.fill();
     o.x = x;
     o.y = y;
+}
+function circle(o){
+    ctx.beginPath();
+    ctx.arc(o.x,o.y,o.r,0,2*Math.PI);
+    ctx.fillStyle = "hsla("+o.c+",100%,0%,.5)";
+    ctx.fill();
 }
     //general randoms
     var result1 = Math.floor(Math.random()*9);
@@ -120,11 +134,12 @@ function rect(o){
 
     //bigHalf randoms
     var xB = Math.floor(Math.random()*1000);
-    var yB = Math.floor(Math.random()*-500);
+    var yB = Math.floor(Math.random()*-600);
     var wB = Math.floor(Math.random()*400+200);
     var hB = Math.floor(Math.random()*100+300);
 
-for(var i=0;i<8;i++){
+for(var i=0;i<4;i++){
+
     rect(o1);
     ctx.drawImage(flow,xF,yF,wF,hF);
     ctx.drawImage(bigHalf,xB,yB,wB,hB);
@@ -133,7 +148,66 @@ for(var i=0;i<8;i++){
     ctx.drawImage(images[result3], x3, y3, w3, h3);
     ctx.drawImage(images[result4], x4, y4, w4, h4);
     ctx.drawImage(images[result5], x5, y5, w5, h5);
+    circle(o2);
     }
+
+var textArray = ["wordle?","india vs. england?","ukraine?","queen elizabeth?","ind vs SA?","election results?","passing?","powerball numbers?","johnny depp?","will smith?","amber heard?","euphoria?","betty white?","rogers outage?","why is there a formula shortage?","why is rogers down?"];
+
+    //textArray1 randoms
+    var xT1 = Math.floor(Math.random()*1200+20);
+    var yT1 = Math.floor(Math.random()*600+20);
+    var wT1 = Math.floor(Math.random()*100);
+
+   //textArray2 randoms
+   var xT2 = Math.floor(Math.random()*1200+20);
+   var yT2 = Math.floor(Math.random()*600+20);
+   var wT2 = Math.floor(Math.random()*100);
+
+   //textArray3 randoms
+   var xT3 = Math.floor(Math.random()*1200+20);
+   var yT3 = Math.floor(Math.random()*600+20);
+   var wT3 = Math.floor(Math.random()*100);
+
+   //textArray4 randoms
+   var xT4 = Math.floor(Math.random()*1200+20);
+   var yT4 = Math.floor(Math.random()*600+20);
+   var wT4 = Math.floor(Math.random()*100);
+
+   //textArray5 randoms
+   var xT5 = Math.floor(Math.random()*1200+20);
+   var yT5 = Math.floor(Math.random()*600+20);
+   var wT5 = Math.floor(Math.random()*100);
+
+   //main txt randoms
+   var xTe = Math.floor(Math.random()*190+10)
+   var yTe = Math.floor(Math.random()*190+20)
+
+    //general text randoms
+    var resultT1 = Math.floor(Math.random()*16);
+    var resultT2 = Math.floor(Math.random()*16);
+    var resultT3 = Math.floor(Math.random()*16);
+    var resultT4 = Math.floor(Math.random()*16);
+    var resultT5 = Math.floor(Math.random()*16);
+
+    //colour text
+    var cT1 = Math.floor(Math.random()*25+10);
+    var aT1 = Math.random()*0.5;
+
+    ctx.font= wT1+"px helvetica";
+    ctx.fillStyle = "hsla("+cT1+",100%,20%,"+aT1+")";
+    ctx.fillText(textArray[resultT1], xT1, yT1);
+    ctx.font= wT2+"px helvetica";
+    ctx.fillText(textArray[resultT2], xT2, yT2);
+    ctx.font= wT3+"px helvetica";
+    ctx.fillText(textArray[resultT3], xT3, yT3);
+    ctx.font= wT4+"px helvetica";
+    ctx.fillText(textArray[resultT4], xT4, yT4);
+    ctx.font= wT5+"px helvetica";
+    ctx.fillText(textArray[resultT5], xT5, yT5);
+
+    ctx.fillStyle = "hsla("+cT1+",100%,10%,"+1+")";
+    ctx.font= "30px helvetica";
+    ctx.fillText("What was it this time today...", xTe, yTe);
 };
 
 function clear(){
@@ -146,6 +220,13 @@ function circle(o){
     ctx.fillStyle = "hsla("+o.c+",100%,50%,"+o.a+")";
     ctx.fill();
 }
+
+function text() {
+    ctx.font="100px gambado-sans-forte";
+    ctx.fillStyle = "white";
+    ctx.textAlign = "center";
+    ctx.fillText("hover over me!", canvas.width/2, canvas.height/2);
+  }
 
 function randn(r){
     var result = Math.random()*r - r/2;
@@ -165,7 +246,4 @@ function setUpCanvas(){
     ctx = canvas.getContext("2d");
     canvas.width = w;
     canvas.height = h;
-    canvas.style.border = "1px solid white";
 }
-
-console.log("module 7");
