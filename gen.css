@@ -14,18 +14,19 @@ h1{
 h2{
     font-family: 'Helvetica', Times, serif;
     font-style:normal;
-    padding: 0;
     text-align: center;
     display: block;
     font-size: 20px;
     color:rgb(41, 34, 30);
+    line-height: 30px;
+
 }
 html{
     background-image: url("gdd4.gif");
     background-repeat: no-repeat;
     background-size: 700px;
     background-attachment: fixed;
-    background-position: center 80px;
+    background-position: center;
 }
 #flow1{
     z-index: 1;
